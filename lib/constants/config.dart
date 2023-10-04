@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 class Config {
   Config._();
-  static const httpServicesBaseUrl = "http://localhost:8888";
+  static const httpServicesBaseUrl = "http://10.0.2.2:3000";
   static ThemeData primaryThemeData = ThemeData(
       primarySwatch: Colors.green,
       fontFamily: "Nexa",
@@ -34,15 +34,8 @@ class Config {
           centerTitle: true,
           titleTextStyle: MyTextStyles.appbar));
   static void errorHandler({String title = "", String message = ""}) {
-    Get.snackbar(title, message, backgroundColor: Colors.grey.shade200);
+    Get.snackbar(title, message, backgroundColor: Colors.grey.shade200,duration: Duration(seconds: 4));
   }
 }
 
-class PageRoutes {
-  PageRoutes._();
 
-  static const welcome = "/welcome";
-  static const register = "/register";
-  static const singIn = "/singIn";
-  static const messages = "/messages";
-}

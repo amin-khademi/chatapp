@@ -85,9 +85,9 @@ class Register extends StatelessWidget {
                             ? MyLoading()
                             : PrimaryButton(
                                 title: "create new acount",
-                                onPressed: () {
-                                  return registerGet.createNewAcount();
-                                })),
+                                onPressed: 
+                                   registerGet.createNewAcount
+                                )),
                       ),
                       Padding(
                         padding: EdgeInsets.only(top: 10),

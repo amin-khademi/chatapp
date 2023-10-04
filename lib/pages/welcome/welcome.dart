@@ -1,7 +1,7 @@
 import 'package:chatapp/components/buttons/primary_button.dart';
 import 'package:chatapp/components/buttons/underline_button.dart';
-import 'package:chatapp/constants/config.dart';
 import 'package:chatapp/constants/text_style.dart';
+import 'package:chatapp/route_manager/page_route.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
