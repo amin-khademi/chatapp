@@ -1,4 +1,4 @@
-import 'package:chatapp/pages/login/login.dart';
+import 'package:chatapp/pages/login/view.dart';
 import 'package:chatapp/pages/messages/messages.dart';
 import 'package:chatapp/pages/register/register.dart';
 import 'package:chatapp/pages/welcome/welcome.dart';

@@ -3,6 +3,8 @@ import 'package:chatapp/components/buttons/underline_button.dart';
 import 'package:chatapp/components/loading.dart';
 import 'package:chatapp/components/textfield/primary_textfield.dart';
 import 'package:chatapp/pages/register/register.get.dart';
+import 'package:chatapp/route_manager/page_route.dart';
+import 'package:chatapp/route_manager/pages.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -85,14 +87,15 @@ class Register extends StatelessWidget {
                             ? MyLoading()
                             : PrimaryButton(
                                 title: "create new acount",
-                                onPressed: 
-                                   registerGet.createNewAcount
-                                )),
+                                onPressed: registerGet.createNewAcount)),
                       ),
                       Padding(
                         padding: EdgeInsets.only(top: 10),
                         child: UnderlineButton(
-                            title: "you already register?", onPressed: () {}),
+                            title: "you already register?",
+                            onPressed: () {
+                              Get.toNamed(PageRoutes.singIn);
+                            }),
                       )
                     ],
                   ),
