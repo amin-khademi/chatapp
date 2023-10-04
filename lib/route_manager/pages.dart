@@ -1,6 +1,7 @@
 import 'package:chatapp/pages/login/view.dart';
 import 'package:chatapp/pages/messages/messages.dart';
 import 'package:chatapp/pages/register/register.dart';
+import 'package:chatapp/pages/setting/view.dart';
 import 'package:chatapp/pages/welcome/welcome.dart';
 import 'package:chatapp/route_manager/page_route.dart';
 import 'package:get/get.dart';
@@ -22,6 +23,10 @@ class Pages {
     GetPage(
       name: PageRoutes.register,
       page: () => Register(),
+    ),
+    GetPage(
+      name: PageRoutes.setting,
+      page: () => Setting(),
     )
   ];
 }

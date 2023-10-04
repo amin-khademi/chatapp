@@ -5,4 +5,5 @@ class PageRoutes {
   static const register = "/register";
   static const singIn = "/singIn";
   static const messages = "/messages";
+  static const setting = "/settings";
 }
