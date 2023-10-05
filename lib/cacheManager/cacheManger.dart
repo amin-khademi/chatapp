@@ -1,3 +1,4 @@
+import 'package:chatapp/models/me.dart';
 import 'package:get_storage/get_storage.dart';
 
 class UserCacheManager {
@@ -9,6 +10,17 @@ class UserCacheManager {
   static const String USER_NAME_KEY = '--user-name-key';
   static const String USER_FULLNAME_KEY = '--user-fullname-key';
   static const String USER_TOKEN_KEY = '--user-token-key';
+
+  static Me getUserData() {
+    final box = GetStorage();
+    return Me(
+        userId: box.read(UserCacheManager.USER_ID_KEY),
+        fullname: box.read(UserCacheManager.USER_FULLNAME_KEY)??"",
+        username: box.read(UserCacheManager.USER_NAME_KEY),
+        token: box.read(UserCacheManager.USER_TOKEN_KEY));
+
+        
+  }
 
   static Future<void> save(
       {String? userId,

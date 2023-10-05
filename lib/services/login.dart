@@ -6,7 +6,7 @@ import 'package:chatapp/services/base.dart';
 import 'package:http/http.dart' as http;
 
 class LoginService extends BaseService {
-  final Uri url = Uri.parse("${Config.httpServicesBaseUrl}/signin");
+  final Uri url = Uri.parse("${Config.httpsServicesBaseUrl}/signin");
 
   @override
   Future<bool> call(Map<String, dynamic> args) async {
@@ -21,11 +21,11 @@ class LoginService extends BaseService {
           message: decodedResponse["message"]);
 
       await UserCacheManager.save(
-          fullname: decodedResponse['fullName'],
+          fullname: decodedResponse["data"]['fullName'],
           userId: decodedResponse['data']['_id'],
-          username: decodedResponse['userName'],
+          username: decodedResponse["data"]['userName'],
           token: decodedResponse['data']['token']);
-      Future.delayed(Duration(seconds: 1)).then((value) => null);
+      Future.delayed(Duration(seconds: 3)).then((value) => null);
 
       return true;
     } else {

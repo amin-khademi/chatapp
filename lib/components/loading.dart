@@ -10,7 +10,7 @@ class MyLoading extends StatelessWidget {
         width: 20,
         height: 20,
         child: CupertinoActivityIndicator(
-          color: MyColros.primaryColor,
+          color: MyColors.primaryColor,
         ));
   }
 }

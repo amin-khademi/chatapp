@@ -6,7 +6,7 @@ import 'package:chatapp/services/base.dart';
 import 'package:http/http.dart' as http;
 
 class RegisterService extends BaseService {
-  final Uri url = Uri.parse("${Config.httpServicesBaseUrl}/register");
+  final Uri url = Uri.parse("${Config.httpsServicesBaseUrl}/register");
 
   @override
   Future<bool> call(Map<String, dynamic> args) async {

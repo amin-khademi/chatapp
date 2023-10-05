@@ -4,7 +4,6 @@ import 'package:chatapp/components/loading.dart';
 import 'package:chatapp/components/textfield/primary_textfield.dart';
 import 'package:chatapp/pages/register/register.get.dart';
 import 'package:chatapp/route_manager/page_route.dart';
-import 'package:chatapp/route_manager/pages.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

@@ -1,4 +1,3 @@
-import 'package:chatapp/cacheManager/cacheManger.dart';
 import 'package:chatapp/constants/config.dart';
 import 'package:chatapp/route_manager/page_route.dart';
 import 'package:chatapp/route_manager/pages.dart';
@@ -8,7 +7,7 @@ import 'package:get_storage/get_storage.dart';
 
 void main() async {
   await GetStorage.init();
-  await UserCacheManager.checkLogin();
+  
   runApp(const MyApp());
 }
 
@@ -20,9 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: UserCacheManager.isUserLoggedIn
-          ? PageRoutes.messages
-          : PageRoutes.welcome,
+      initialRoute: PageRoutes.splash,
       title: 'ChatApp',
       theme: Config.primaryThemeData,
       getPages: Pages.pages,

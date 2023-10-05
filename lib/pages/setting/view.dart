@@ -1,10 +1,7 @@
-import 'package:chatapp/components/buttons/primary_button.dart';
-import 'package:chatapp/components/buttons/underline_button.dart';
-import 'package:chatapp/components/loading.dart';
-import 'package:chatapp/components/textfield/primary_textfield.dart';
+import 'package:chatapp/constants/config.dart';
 import 'package:chatapp/constants/text_style.dart';
 import 'package:chatapp/pages/setting/setting.get.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:chatapp/pages/setting/setting_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -26,15 +23,25 @@ class Setting extends StatelessWidget {
       ),
       body: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            TextButton(
-                onPressed: settingGet.logOut,
-                child: Text(
-                  "logOut",
-                  style: MyTextStyles.headline.copyWith(color: Colors.red),
-                ))
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(bottom: 50, top: 15),
+              child: Text(
+                Config.me!.fullname.toString(),
+                style: MyTextStyles.header,
+              ),
+            ),
+            SettingItemWidget(
+              title: "Privacy Policy",
+            ),
+            SettingItemWidget(
+              title: "logOut",
+              prefixIcon: Icons.exit_to_app_rounded,
+              onTapped: settingGet.logOut,
+              isInRed: true,
+            )
           ],
         ),
       ),
