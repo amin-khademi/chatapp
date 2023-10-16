@@ -1,7 +1,7 @@
 import 'package:chatapp/cacheManager/cacheManger.dart';
 import 'package:chatapp/constants/config.dart';
 import 'package:chatapp/route_manager/page_route.dart';
-import 'package:chatapp/services/login.dart';
+import 'package:chatapp/services/login.service.dart';
 import 'package:get/get.dart';
 
 class LoginGet extends GetxController {
