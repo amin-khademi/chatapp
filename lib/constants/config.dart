@@ -8,6 +8,7 @@ class Config {
   Config._();
   static const httpsServicesBaseUrl = 'http://10.0.2.2:3000';
   static const socketServerBaseUrl = 'http://10.0.2.2:3000';
+  // 'http://192.168.1.24:3000'
   static String showAvatarBaseUrl(String userId) =>
       '${Config.httpsServicesBaseUrl}/avatar/$userId';
   static String showRoomAvatarBaseUrl(String roomId) =>
