@@ -3,7 +3,7 @@ class PageRoutes {
 
   static const welcome = "/welcome";
   static const register = "/register";
-  static const singIn = "/singIn";
+  static const logIn = "/singIn";
   static const messages = "/messages";
   static const setting = "/settings";
   static const String splash = '/splash';

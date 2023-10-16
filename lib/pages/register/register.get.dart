@@ -15,7 +15,7 @@ class RegisterGet extends GetxController {
     if (fullname.value.isEmpty ||
         username.value.isEmpty ||
         password.value.isEmpty) {
-      Config.errorHandler(title: "error", message: "errr");
+      Config.errorHandler(title: "Error", message: "please enter all the fields.");
     } else {}
 
     if (!loading.value) {

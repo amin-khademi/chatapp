@@ -14,6 +14,9 @@ class LoginGet extends GetxController {
     if (username.value.isEmpty || password.value.isEmpty) {
       Config.errorHandler(
           title: "Empty field", message: "please enter all the fields.");
+      Future.delayed(Duration(seconds: 2))
+          .then((value) => loading.value = false);
+      update();
     } else {}
 
     if (!loading.value) {
@@ -30,10 +33,12 @@ class LoginGet extends GetxController {
             Get.offAllNamed(PageRoutes.splash);
             loading.value = false;
           });
+        } else {
+          Future.delayed(Duration(seconds: 2))
+          .then((value) => loading.value = false);
         }
       } catch (er) {
         Config.errorHandler(title: "Error", message: er.toString());
-        loading.value = false;
       }
     }
   }

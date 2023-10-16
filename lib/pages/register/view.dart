@@ -93,7 +93,7 @@ class Register extends StatelessWidget {
                         child: UnderlineButton(
                             title: "you already register?",
                             onPressed: () {
-                              Get.toNamed(PageRoutes.singIn);
+                              Get.toNamed(PageRoutes.logIn);
                             }),
                       )
                     ],

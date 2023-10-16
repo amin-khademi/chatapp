@@ -43,14 +43,20 @@ class Welcome extends StatelessWidget {
       );
 
   Widget get _logo => Center(
-        child: ClipRRect(borderRadius: BorderRadius.circular(20),child: Image.asset("assets/img/chatify_logo.png",width: 100,height: 100,)),
+        child: ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: Image.asset(
+              "assets/img/chatify_logo.png",
+              width: 100,
+              height: 100,
+            )),
       );
   Widget get _buttons => Column(
         children: [
           PrimaryButton(
             title: "Sign in",
             onPressed: () {
-              Get.toNamed(PageRoutes.singIn);
+              Get.toNamed(PageRoutes.logIn);
             },
           ),
           UnderlineButton(

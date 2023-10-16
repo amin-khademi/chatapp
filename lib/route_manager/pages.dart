@@ -17,7 +17,7 @@ class Pages {
       page: () => Welcome(),
     ),
     GetPage(
-      name: PageRoutes.singIn,
+      name: PageRoutes.logIn,
       page: () => LogIn(),
     ),
     GetPage(
