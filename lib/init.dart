@@ -1,11 +1,10 @@
-
 import 'package:chatapp/cacheManager/hive.cache.dart';
 import 'package:chatapp/constants/config.dart';
 import 'package:chatapp/models/message.dart';
 import 'package:chatapp/models/room.dart';
 import 'package:chatapp/models/user.dart';
 import 'package:chatapp/pages/chat/chat.get.dart';
-import 'package:chatapp/pages/messages/messages_get.dart';
+import 'package:chatapp/pages/messages/view.get.dart';
 import 'package:get/get.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 
@@ -29,8 +28,9 @@ class AppInit {
             .enableForceNew()
             .build());
 
-    AppInit().socket?.onConnect((data) => print('Connected'));
-    AppInit().socket?.onDisconnect((data) => print('Disconnected'));
+    AppInit().socket?.onConnect((data) => print('Connected: $data'));
+    AppInit().socket?.onDisconnect((data) => print('Disconnected$data '));
+    AppInit().socket?.connect();
     AppInit().socket?.on('onMessage', (data) => _onMessageHandler(data));
 
     AppInit().socket?.connect();
@@ -64,5 +64,3 @@ class AppInit {
     }
   }
 }
-
-

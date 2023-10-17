@@ -5,7 +5,7 @@ import 'package:chatapp/models/contact.dart';
 import 'package:chatapp/models/message.dart';
 import 'package:chatapp/models/room.dart';
 import 'package:chatapp/models/user.dart';
-import 'package:chatapp/pages/messages/messages_get.dart';
+import 'package:chatapp/pages/messages/view.get.dart';
 import 'package:chatapp/route_manager/page_route.dart';
 
 import 'package:flutter/material.dart';

@@ -2,7 +2,7 @@
 import 'package:chatapp/cacheManager/hive.cache.dart';
 import 'package:chatapp/constants/config.dart';
 import 'package:chatapp/models/contact.dart';
-import 'package:chatapp/pages/messages/messages_get.dart';
+import 'package:chatapp/pages/messages/view.get.dart';
 import 'package:chatapp/route_manager/page_route.dart';
 import 'package:chatapp/services/addContact.service.dart';
 import 'package:get/get.dart';

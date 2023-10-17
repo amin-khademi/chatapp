@@ -5,7 +5,7 @@ import 'package:chatapp/components/dialogs/editMembers/editMembers.dialog.dart';
 import 'package:chatapp/constants/config.dart';
 import 'package:chatapp/models/member.dart';
 import 'package:chatapp/models/room.dart';
-import 'package:chatapp/pages/messages/messages_get.dart';
+import 'package:chatapp/pages/messages/view.get.dart';
 import 'package:chatapp/services/newRoom.service.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';

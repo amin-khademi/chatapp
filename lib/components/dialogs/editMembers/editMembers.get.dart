@@ -1,6 +1,6 @@
 
 import 'package:chatapp/models/member.dart';
-import 'package:chatapp/pages/messages/messages_get.dart';
+import 'package:chatapp/pages/messages/view.get.dart';
 import 'package:get/get.dart';
 import 'package:rxdart/rxdart.dart';
 

@@ -2,7 +2,7 @@ import 'package:chatapp/pages/RoomProperties/roomProperties.dart';
 import 'package:chatapp/pages/chat/chat.dart';
 import 'package:chatapp/pages/contactProperties/contactProperties.dart';
 import 'package:chatapp/pages/login/view.dart';
-import 'package:chatapp/pages/messages/messages.dart';
+import 'package:chatapp/pages/messages/view.dart';
 import 'package:chatapp/pages/register/view.dart';
 import 'package:chatapp/pages/setting/view.dart';
 import 'package:chatapp/pages/splash/splash.dart';

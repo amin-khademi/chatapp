@@ -2,7 +2,7 @@
 import 'package:chatapp/components/buttons/underline_button.dart';
 import 'package:chatapp/components/message.widget.dart';
 import 'package:chatapp/constants/text_style.dart';
-import 'package:chatapp/pages/messages/messages_get.dart';
+import 'package:chatapp/pages/messages/view.get.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

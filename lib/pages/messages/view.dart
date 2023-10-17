@@ -1,5 +1,5 @@
 import 'package:chatapp/constants/colors.dart';
-import 'package:chatapp/pages/messages/messages_get.dart';
+import 'package:chatapp/pages/messages/view.get.dart';
 import 'package:chatapp/pages/messages/view.chats.dart';
 import 'package:chatapp/pages/messages/view.rooms.dart';
 import 'package:chatapp/pages/messages/view.tabbar.dart';
