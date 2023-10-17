@@ -53,7 +53,7 @@ class _MessagesState extends State<Messages> with TickerProviderStateMixin {
           MessagesTabbar(controller: _controller!),
           SafeArea(
             child: Padding(
-              padding: const EdgeInsets.only(right: 16),
+              padding: const EdgeInsets.only(right: 20,bottom: 20),
               child: Align(
                 alignment: Alignment.bottomRight,
                 child: FloatingActionButton(

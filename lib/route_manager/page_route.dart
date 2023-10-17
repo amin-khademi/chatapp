@@ -1,11 +1,11 @@
 class PageRoutes {
   PageRoutes._();
 
-  static const welcome = "/welcome";
-  static const register = "/register";
-  static const logIn = "/singIn";
-  static const messages = "/messages";
-  static const setting = "/settings";
+  static const String welcome = "/welcome";
+  static const String register = "/register";
+  static const String logIn = "/singIn";
+  static const String messages = "/messages";
+  static const String setting = "/settings";
   static const String splash = '/splash';
   static const String chat = '/chat';
 
