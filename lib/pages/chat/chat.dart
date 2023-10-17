@@ -1,4 +1,3 @@
-import 'package:chatapp/components/textfield/primary_textfield.dart';
 import 'package:chatapp/constants/text_style.dart';
 import 'package:chatapp/pages/chat/chat.get.dart';
 import 'package:flutter/cupertino.dart';
@@ -38,15 +37,21 @@ class Chat extends StatelessWidget {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              
               width: double.infinity,
-              decoration: BoxDecoration(color: Colors.grey),
-              child: SafeArea(child:TextField(
+              decoration: BoxDecoration(
+                  border:
+                      Border(top: BorderSide(width: 0.8, color: Colors.grey))),
+              child: SafeArea(
+                  child: TextField(
                 minLines: 1,
                 maxLines: 5,
+                style: MyTextStyles.textfield
+                    .copyWith(fontWeight: FontWeight.bold),
                 decoration: InputDecoration(
-                  hintText: "write message"
-                ),
+                    border: InputBorder.none,
+                    enabledBorder: InputBorder.none,
+                    focusedBorder: InputBorder.none,
+                    hintText: "write message"),
               )),
             ),
           )

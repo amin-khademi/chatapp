@@ -16,12 +16,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialRoute: PageRoutes.splash,
-      title: 'ChatApp',
-      theme: Config.primaryThemeData,
-      getPages: Pages.pages,
+    return GestureDetector(
+      onTap: () {
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
+      child: GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        initialRoute: PageRoutes.splash,
+        title: 'ChatApp',
+        theme: Config.primaryThemeData,
+        getPages: Pages.pages,
+      ),
     );
   }
 }
