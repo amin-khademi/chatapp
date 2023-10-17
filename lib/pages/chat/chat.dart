@@ -1,7 +1,10 @@
+import 'package:chatapp/constants/colors.dart';
 import 'package:chatapp/constants/text_style.dart';
+import 'package:chatapp/models/message.dart';
 import 'package:chatapp/pages/chat/chat.get.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_chat_bubble/chat_bubble.dart';
 import 'package:get/get.dart';
 
 class Chat extends StatelessWidget {
@@ -33,7 +36,37 @@ class Chat extends StatelessWidget {
       body: Stack(
         alignment: Alignment.center,
         children: [
-          ListView(),
+          StreamBuilder<bool>(
+            stream: chatGet.onUpdateStream.stream,
+            builder: (context, snapshot) {
+              return ListView.builder(
+                physics: ClampingScrollPhysics(),
+                controller: chatGet.scrollController,
+                itemCount: chatGet.messages.length,
+                itemBuilder: (context, index) {
+                  final message = chatGet.messages[index] as Message;
+                  final ismymessage = message.isMyMessage();
+                  return ChatBubble(
+                    backGroundColor: message.isMyMessage()
+                        ? MyColors.primaryColor
+                        : Colors.grey,
+                    margin: EdgeInsets.all(8),
+                    clipper: ChatBubbleClipper3(
+                        type: ismymessage
+                            ? BubbleType.sendBubble
+                            : BubbleType.receiverBubble),
+                    alignment: ismymessage
+                        ? Alignment.centerRight
+                        : Alignment.centerLeft,
+                    child: Text(
+                      message.message,
+                      style: MyTextStyles.button,
+                    ),
+                  );
+                },
+              );
+            },
+          ),
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
@@ -42,16 +75,30 @@ class Chat extends StatelessWidget {
                   border:
                       Border(top: BorderSide(width: 0.8, color: Colors.grey))),
               child: SafeArea(
-                  child: TextField(
-                minLines: 1,
-                maxLines: 5,
-                style: MyTextStyles.textfield
-                    .copyWith(fontWeight: FontWeight.bold),
-                decoration: InputDecoration(
-                    border: InputBorder.none,
-                    enabledBorder: InputBorder.none,
-                    focusedBorder: InputBorder.none,
-                    hintText: "write message"),
+                  child: Obx(
+                () => TextField(
+                  controller: chatGet.controller,
+                  onChanged: (value) => chatGet.message.value = value,
+                  minLines: 1,
+                  maxLines: 5,
+                  style: MyTextStyles.textfield
+                      .copyWith(fontWeight: FontWeight.bold),
+                  decoration: InputDecoration(
+                      suffixIcon: IconButton(
+                          onPressed: chatGet.message.value.isEmpty
+                              ? null
+                              : chatGet.send,
+                          icon: Icon(
+                            Icons.send,
+                            color: chatGet.message.value.isEmpty
+                                ? Colors.grey
+                                : MyColors.primaryColor,
+                          )),
+                      border: InputBorder.none,
+                      enabledBorder: InputBorder.none,
+                      focusedBorder: InputBorder.none,
+                      hintText: "write message"),
+                ),
               )),
             ),
           )

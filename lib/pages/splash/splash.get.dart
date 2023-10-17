@@ -15,10 +15,10 @@ class SplashGet extends GetxController {
   void _init() async {
     await UserCacheManager.checkLogin();
     if (UserCacheManager.isUserLoggedIn) {
-      // refresh token
-      final service = TokenFresherService();
-      await service
-          .call({"userId": Config.me!.userId, "userName": Config.me!.username});
+      // // refresh token
+      // final service = TokenFresherService();
+      // await service
+      //     .call({"userId": Config.me!.userId, "userName": Config.me!.username});
       Config.me = UserCacheManager.getUserData();
       AppInit().initSocketClient();
       Future.delayed(Duration(seconds: 2))

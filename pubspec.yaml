@@ -44,6 +44,7 @@ dependencies:
   hive_flutter: ^1.1.0
   image_picker: ^1.0.4
   cached_network_image: ^3.3.0
+  flutter_chat_bubble: ^2.0.2
 
 dev_dependencies:
   flutter_test:
