@@ -1,4 +1,3 @@
-
 import 'package:chatapp/models/contact.dart';
 import 'package:chatapp/models/message.dart';
 import 'package:chatapp/models/room.dart';

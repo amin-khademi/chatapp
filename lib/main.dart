@@ -1,12 +1,21 @@
 import 'package:chatapp/constants/config.dart';
+import 'package:chatapp/models/contact.dart';
+import 'package:chatapp/models/message.dart';
+import 'package:chatapp/models/user.dart';
 import 'package:chatapp/route_manager/page_route.dart';
 import 'package:chatapp/route_manager/pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:hive_flutter/adapters.dart';
 
 void main() async {
   await GetStorage.init();
+  //hive init
+  Hive.registerAdapter(UserAdapter());
+  Hive.registerAdapter(MessageAdapter());
+  Hive.registerAdapter(ContactAdapter());
+  //run app
   runApp(const MyApp());
 }
 
