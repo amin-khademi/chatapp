@@ -2,7 +2,7 @@ import 'package:chatapp/cacheManager/cacheManger.dart';
 import 'package:chatapp/constants/config.dart';
 import 'package:chatapp/init.dart';
 import 'package:chatapp/route_manager/page_route.dart';
-import 'package:chatapp/services/tokenFresher.service.dart';
+// import 'package:chatapp/services/tokenFresher.service.dart';
 import 'package:get/get.dart';
 
 class SplashGet extends GetxController {

@@ -73,7 +73,7 @@ class Chat extends StatelessWidget {
               width: double.infinity,
               decoration: BoxDecoration(
                   border:
-                      Border(top: BorderSide(width: 0.8, color: Colors.grey))),
+                      Border(top: BorderSide(width: 0.8, color: Colors.grey.shade200))),
               child: SafeArea(
                   child: Obx(
                 () => TextField(
