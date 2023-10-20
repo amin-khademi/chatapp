@@ -1,4 +1,3 @@
-
 import 'package:chatapp/components/buttons/underline_button.dart';
 import 'package:chatapp/components/message.widget.dart';
 import 'package:chatapp/constants/text_style.dart';

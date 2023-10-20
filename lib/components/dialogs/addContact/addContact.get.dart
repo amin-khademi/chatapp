@@ -1,4 +1,3 @@
-
 import 'package:chatapp/cacheManager/hive.cache.dart';
 import 'package:chatapp/constants/config.dart';
 import 'package:chatapp/models/contact.dart';
@@ -23,12 +22,8 @@ class AddContactGet extends GetxController {
       final result = await service.call({'username': username.value});
       loading.value = false;
       if (result != null) {
-
-        //TODO  این اضافی هستش اینجا
-        Get.back();
-        Get.toNamed(PageRoutes.chat, arguments: result);
         final messagesGet = Get.find<MessagesGet>();
-        await HiveCacheManager().save(Contact(user: result, messages: []));
+        HiveCacheManager().save(Contact(user: result, messages: []));
         messagesGet.init();
         Get.back();
         Get.toNamed(PageRoutes.chat, arguments: result);

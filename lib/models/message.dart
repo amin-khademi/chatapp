@@ -1,8 +1,6 @@
 import 'package:chatapp/constants/config.dart';
 import 'package:chatapp/models/user.dart';
-
 import 'package:hive/hive.dart';
-
 part 'message.g.dart';
 
 @HiveType(typeId: 1)

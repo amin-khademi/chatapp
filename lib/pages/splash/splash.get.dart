@@ -1,10 +1,8 @@
-
 import 'package:chatapp/cacheManager/cacheManger.dart';
 import 'package:chatapp/cacheManager/hive.cache.dart';
 import 'package:chatapp/constants/config.dart';
 import 'package:chatapp/init.dart';
 import 'package:chatapp/route_manager/page_route.dart';
-import 'package:chatapp/services/initServices.dart';
 import 'package:chatapp/services/tokenFresher.service.dart';
 import 'package:get/get.dart';
 
@@ -18,7 +16,6 @@ class SplashGet extends GetxController {
   void _init() async {
     await UserCacheManager.checkLogin();
     if (UserCacheManager.isUserLoggedIn) {
-      
       Config.me = UserCacheManager.getUserData();
       // Refresh Token
       final service = TokenFresherService();
@@ -26,15 +23,15 @@ class SplashGet extends GetxController {
           .call({'userId': Config.me!.userId, 'userName': Config.me!.username});
       // Init Socket & HiveCache Manager
       AppInit().initSocketClient();
-      // await HiveCacheManager().init();
+      HiveCacheManager().init();
+      
 
       // Get latest offline messages
       // final offlineMsgServices = InitServices();
       // await offlineMsgServices.call({'userId': Config.me!.userId});
 
       // Route user to messages list
-       Get.offAllNamed(PageRoutes.messages);
-     
+      Get.offAllNamed(PageRoutes.messages);
     } else {
       Get.offAllNamed(PageRoutes.welcome);
     }

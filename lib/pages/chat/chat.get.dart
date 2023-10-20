@@ -7,7 +7,6 @@ import 'package:chatapp/models/room.dart';
 import 'package:chatapp/models/user.dart';
 import 'package:chatapp/pages/messages/view.get.dart';
 import 'package:chatapp/route_manager/page_route.dart';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rxdart/subjects.dart';

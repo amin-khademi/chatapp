@@ -1,4 +1,3 @@
-
 import 'package:chatapp/cacheManager/hive.cache.dart';
 import 'package:chatapp/components/dialogs/addContact/addContact.dialog.dart';
 import 'package:chatapp/components/dialogs/addRoom/addRoom.dialog.dart';
@@ -13,7 +12,11 @@ class MessagesGet extends GetxController {
 
   PublishSubject<bool> contactsStream = PublishSubject<bool>();
   PublishSubject<bool> roomStream = PublishSubject<bool>();
-  List<Contact> contacts = [];
+  List<Contact> contacts = [
+    // Contact(
+    //     user: User(
+    //         fullname: "ali", id: "65200e2beecd38ba4927bc4b", username: "ali"))
+  ];
   List<Room> rooms = [];
   @override
   void onInit() {
