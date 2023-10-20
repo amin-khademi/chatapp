@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 
-import 'package:chatapp/cacheManager/cacheManger.dart';
+import 'package:chatapp/cacheManager/cache.manger.dart';
 import 'package:chatapp/constants/config.dart';
 import 'package:chatapp/services/base.dart';
 import 'package:http/http.dart' as http;

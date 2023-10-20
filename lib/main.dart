@@ -13,7 +13,6 @@ import 'package:hive_flutter/adapters.dart';
 void main() async {
   //get storage
   await GetStorage.init();
-
   //hive
   await Hive.initFlutter();
   Hive.registerAdapter(UserAdapter());
