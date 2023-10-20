@@ -40,7 +40,7 @@ class Chat extends StatelessWidget {
             stream: chatGet.onUpdateStream.stream,
             builder: (context, snapshot) {
               return ListView.builder(
-                physics: ClampingScrollPhysics(),
+                physics: AlwaysScrollableScrollPhysics(),
                 controller: chatGet.scrollController,
                 itemCount: chatGet.messages.length,
                 itemBuilder: (context, index) {
@@ -64,6 +64,8 @@ class Chat extends StatelessWidget {
                     ),
                   );
                 },
+
+                
               );
             },
           ),

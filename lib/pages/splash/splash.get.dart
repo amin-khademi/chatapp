@@ -3,6 +3,7 @@ import 'package:chatapp/cacheManager/hive.cache.dart';
 import 'package:chatapp/constants/config.dart';
 import 'package:chatapp/init.dart';
 import 'package:chatapp/route_manager/page_route.dart';
+import 'package:chatapp/services/init.services.dart';
 import 'package:chatapp/services/tokenFresher.service.dart';
 import 'package:get/get.dart';
 
@@ -27,8 +28,8 @@ class SplashGet extends GetxController {
       
 
       // Get latest offline messages
-      // final offlineMsgServices = InitServices();
-      // await offlineMsgServices.call({'userId': Config.me!.userId});
+      final offlineMsgServices = InitServices();
+      await offlineMsgServices.call({'userId': Config.me!.userId});
 
       // Route user to messages list
       Get.offAllNamed(PageRoutes.messages);

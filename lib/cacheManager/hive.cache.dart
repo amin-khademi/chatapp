@@ -25,6 +25,9 @@ class HiveCacheManager {
       final result = contactsBox!.get(contact.user.id);
       if (result == null) {
         await contactsBox!.put(contact.user.id, contact);
+      } else {
+        result.messages.addAll(contact.messages);
+        await contactsBox!.put(contact.user.id, result);
       }
     }
   }
@@ -121,7 +124,7 @@ class HiveCacheManager {
 
   Future<List<Contact>> getAll() async {
     await init();
-    
+
     if (contactsBox != null && contactsBox!.isOpen) {
       return contactsBox!.values.toList();
     } else {
