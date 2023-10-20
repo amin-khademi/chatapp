@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 class SettingGet extends GetxController {
   void logOut() async {
     await UserCacheManager.clear();
-    // await HiveCacheManager().clearAll();
+    await HiveCacheManager().clearAll();
     Config.me = null;
     Get.offNamed(PageRoutes.splash);
   }

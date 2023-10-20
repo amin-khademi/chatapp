@@ -84,14 +84,14 @@ class MessageWidget extends StatelessWidget {
         ),
         if (badgeCount > 0)
           Align(
-            alignment: Alignment.centerLeft,
+            alignment: Alignment.centerRight,
             child: Padding(
-              padding: const EdgeInsets.only(left: 16),
+              padding: const EdgeInsets.only(top: 30,right: 45),
               child: CircleAvatar(
-                radius: 10,
+                radius: 14,
                 backgroundColor: MyColors.primaryColor,
-                child: Text(badgeCount.toString(),
-                    style: MyTextStyles.small.copyWith(
+                child: Text(badgeCount>10?"+10": badgeCount.toString(),
+                    style: MyTextStyles.small.copyWith(fontSize: 14,
                         color: Colors.white, fontWeight: FontWeight.bold)),
               ),
             ),
