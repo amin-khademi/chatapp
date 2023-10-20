@@ -41,7 +41,6 @@ dependencies:
   socket_io_client: ^2.0.2
   http: ^0.13.6
   dio: ^5.3.3
-  
   image_picker: ^1.0.4
   cached_network_image: ^3.3.0
   flutter_chat_bubble: ^2.0.2

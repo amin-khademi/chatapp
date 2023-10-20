@@ -1,7 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.chatapp">
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CAMERA" />
    <application
+        android:usesCleartextTraffic="true"
         android:label="chatapp"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">

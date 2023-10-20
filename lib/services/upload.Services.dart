@@ -12,6 +12,8 @@ class UploadServices extends BaseService {
         ..headers['userid'] = args['userId']
         ..headers['Authorization'] = 'Bearer ${Config.me!.token}';
 
+        
+
       req.files
           .add(await http.MultipartFile.fromPath('avatar', args['avatar']));
       final response = await http.Response.fromStream(await req.send());
@@ -20,6 +22,7 @@ class UploadServices extends BaseService {
       if (response.statusCode == 200) {
         return true;
       } else {
+        
         Config.errorHandler(
             title: decodedResponse['error_code'],
             message: decodedResponse['message']);
@@ -28,6 +31,7 @@ class UploadServices extends BaseService {
     } catch (er) {
       print(er);
       Config.errorHandler(title: 'Upload Error', message: er.toString());
+      
       return false;
     }
   }
