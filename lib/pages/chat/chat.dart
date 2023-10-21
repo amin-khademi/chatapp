@@ -158,7 +158,7 @@ class Chat extends StatelessWidget {
                 bottom: 10,
                 left: 20,
               ),
-        clipper: ChatBubbleClipper3(
+        clipper: ChatBubbleClipper5(
             type: ismymessage
                 ? BubbleType.sendBubble
                 : BubbleType.receiverBubble),

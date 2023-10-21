@@ -1,6 +1,7 @@
 import 'package:chatapp/cacheManager/hive.cache.dart';
 import 'package:chatapp/constants/config.dart';
 import 'package:chatapp/init.dart';
+import 'package:chatapp/models/chatType.enum.dart';
 import 'package:chatapp/models/contact.dart';
 import 'package:chatapp/models/message.dart';
 import 'package:chatapp/models/room.dart';
@@ -26,6 +27,8 @@ class ChatGet extends GetxController {
 
   @override
   void onInit() {
+
+    
     if (Get.arguments.runtimeType == Room) {
       room = Get.arguments;
       appInit.currentChatRoom = room;

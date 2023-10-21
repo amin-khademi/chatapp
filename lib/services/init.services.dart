@@ -66,7 +66,7 @@ class InitServices extends BaseService {
                     username: searchMemberDataInUsers(
                         room['users'], memberItem['userId'], false),
                     role: memberItem['role'])
-            ],
+            ], 
             desc: room['desc'] ?? '',
             messages: room['messages'].length > 0
                 ? ([

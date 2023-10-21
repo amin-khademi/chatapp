@@ -1,4 +1,3 @@
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chatapp/constants/colors.dart';
 import 'package:chatapp/constants/config.dart';
@@ -45,8 +44,10 @@ class RoomWidget extends StatelessWidget {
                         child: CachedNetworkImage(
                           fit: BoxFit.cover,
                           imageUrl: Config.showRoomAvatarBaseUrl(room.id),
-                          errorWidget: (context, url, error) => Icon(Icons.person,
-                              color: Colors.grey.shade400, size: 50),
+                          errorWidget: (context, url, error) => Icon(
+                              Icons.person,
+                              color: Colors.grey.shade400,
+                              size: 50),
                         ),
                       ),
                     ),
@@ -90,15 +91,17 @@ class RoomWidget extends StatelessWidget {
         ),
         if (badgeCount > 0)
           Align(
-            alignment: Alignment.centerLeft,
+            alignment: Alignment.centerRight,
             child: Padding(
-              padding: const EdgeInsets.only(left: 16),
+              padding: EdgeInsets.only(top: 30, right: 45),
               child: CircleAvatar(
-                radius: 10,
+                radius: 14,
                 backgroundColor: MyColors.primaryColor,
-                child: Text(badgeCount.toString(),
+                child: Text(badgeCount > 10 ? "+10" : badgeCount.toString(),
                     style: MyTextStyles.small.copyWith(
-                        color: Colors.white, fontWeight: FontWeight.bold)),
+                        fontSize: 14,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold)),
               ),
             ),
           ),
