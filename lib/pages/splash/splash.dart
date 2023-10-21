@@ -12,7 +12,7 @@ class Splash extends StatelessWidget {
     return Scaffold(
       body: Column(mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
-        children: [CircleAvatar()],
+        children: [Center(child: Expanded(child: Image.asset("assets/img/icons8-chat-48.png",width: 200,)))],
       ),
     );
   }
