@@ -23,4 +23,8 @@ class MyTextStyles {
 
   static const chat =
       TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.white);
+
+static const chatStyle =
+      TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white);
+
 }

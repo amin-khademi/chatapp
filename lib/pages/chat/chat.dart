@@ -25,9 +25,25 @@ class Chat extends StatelessWidget {
                   backgroundColor: Colors.grey,
                 ),
               ),
-              Text(
-                chatGet.user?.fullname ?? "",
-                style: MyTextStyles.button.copyWith(color: Colors.black),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    chatGet.room != null
+                        ? (chatGet.room?.name ?? "")
+                        : (chatGet.user?.fullname ?? ""),
+                    style: MyTextStyles.button.copyWith(color: Colors.black),
+                  ),
+                  if (chatGet.room != null)
+                    Text(
+                      "${chatGet.room!.members.length.toString()} members",
+                      style: MyTextStyles.button.copyWith(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w300,
+                          fontSize: 12),
+                    ),
+                ],
               ),
             ],
           ),
@@ -45,27 +61,40 @@ class Chat extends StatelessWidget {
                 itemCount: chatGet.messages.length,
                 itemBuilder: (context, index) {
                   final message = chatGet.messages[index] as Message;
+                   final isLastItem = index == chatGet.messages.length - 1;
                   final ismymessage = message.isMyMessage();
-                  return ChatBubble(
-                    backGroundColor: message.isMyMessage()
-                        ? MyColors.primaryColor
-                        : Colors.grey,
-                    margin: EdgeInsets.all(8),
-                    clipper: ChatBubbleClipper3(
-                        type: ismymessage
-                            ? BubbleType.sendBubble
-                            : BubbleType.receiverBubble),
-                    alignment: ismymessage
-                        ? Alignment.centerRight
-                        : Alignment.centerLeft,
-                    child: Text(
-                      message.message,
-                      style: MyTextStyles.button,
-                    ),
-                  );
+                  return chatGet.room != null
+                      ? Padding(
+                          padding:  EdgeInsets.only(bottom: isLastItem?60:15,top:index==0?15:0),
+                          child: Column(
+                            children: [
+                              if (!ismymessage)
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 10),
+                                  child: Row(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            right: 10, left: 10),
+                                        child: CircleAvatar(
+                                          radius: 18,
+                                          backgroundColor: Colors.grey,
+                                        ),
+                                      ),
+                                      Text(
+                                        message.user.fullname,
+                                        style: MyTextStyles.button
+                                            .copyWith(color: Colors.black),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              chatBubble(ismymessage, message)
+                            ],
+                          ),
+                        )
+                      : chatBubble(ismymessage, message);
                 },
-
-                
               );
             },
           ),
@@ -74,8 +103,9 @@ class Chat extends StatelessWidget {
             child: Container(
               width: double.infinity,
               decoration: BoxDecoration(
-                  border:
-                      Border(top: BorderSide(width: 0.8, color: Colors.grey.shade200))),
+                  border: Border(
+                      top:
+                          BorderSide(width: 0.8, color: Colors.grey.shade200))),
               child: SafeArea(
                   child: Obx(
                 () => TextField(
@@ -88,8 +118,10 @@ class Chat extends StatelessWidget {
                   decoration: InputDecoration(
                       suffixIcon: IconButton(
                           onPressed: chatGet.message.value.isEmpty
-                              ? null
-                              : chatGet.send,
+                                ? null
+                                : (chatGet.room != null)
+                                    ? chatGet.sendMessageInRoom
+                                    : chatGet.send,
                           icon: Icon(
                             Icons.send,
                             color: chatGet.message.value.isEmpty
@@ -107,5 +139,33 @@ class Chat extends StatelessWidget {
         ],
       ),
     );
-  }
+  } //
+
+  Widget chatBubble(bool ismymessage, var message) => ChatBubble(
+        backGroundColor:
+            message.isMyMessage() ? MyColors.primaryColor : Colors.grey,
+        margin: ismymessage
+            ? EdgeInsets.only(bottom: 10, right: 10)
+            : EdgeInsets.only(
+                bottom: 10,
+                left: 10,
+              ),
+        padding: ismymessage
+            ? EdgeInsets.only(left: 10, bottom: 10, right: 20, top: 10)
+            : EdgeInsets.only(
+                right: 10,
+                top: 10,
+                bottom: 10,
+                left: 20,
+              ),
+        clipper: ChatBubbleClipper3(
+            type: ismymessage
+                ? BubbleType.sendBubble
+                : BubbleType.receiverBubble),
+        alignment: ismymessage ? Alignment.centerRight : Alignment.centerLeft,
+        child: Text(
+          message.message,
+          style: MyTextStyles.chatStyle,
+        ),
+      );
 }
